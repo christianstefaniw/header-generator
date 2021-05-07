@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 
     file_name = argv[argc - 1];
 
-    source_file_name = malloc(strlen(file_name) + 1);
+    source_file_name = malloc(sizeof(char) * (strlen(file_name) + strlen(SOURCE_EXTENSION)));
     strcpy(source_file_name, file_name);
     strcat(source_file_name, SOURCE_EXTENSION);
 
@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    header_file_name = malloc(strlen(file_name) + 1);
+    header_file_name = malloc(sizeof(char) * (strlen(file_name) + strlen(HEADER_EXTENSION)));
     strcpy(header_file_name, file_name);
     strcat(header_file_name, HEADER_EXTENSION);
 
