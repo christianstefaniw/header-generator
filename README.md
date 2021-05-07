@@ -1,4 +1,4 @@
 # C Header Generator
 
 A script to generate header files automatically  
-usage: ```./ch <SOURCE FILE NAME>```
+Usage: ```./ch <SOURCE FILE NAME>```
