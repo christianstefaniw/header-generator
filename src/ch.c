@@ -32,8 +32,9 @@ int check_if_function(char *line)
 
 int write_to_buffer(char *line)
 {
-    char *new_line = malloc(sizeof(char) * strlen(line));
-    strcpy(new_line, line);
+    char *new_line;
+
+    new_line = strdup(line);
     buff[buff_index] = strcat(new_line, ";\n");
     buff_index++;
     return 1;
@@ -50,8 +51,7 @@ int main(int argc, char *argv[])
 
     file_name = argv[argc - 1];
 
-    source_file_name = malloc(sizeof(char) * (strlen(file_name) + strlen(SOURCE_EXTENSION)));
-    strcpy(source_file_name, file_name);
+    source_file_name = strdup(file_name);
     strcat(source_file_name, SOURCE_EXTENSION);
 
     if (!file_exists(source_file_name))
@@ -60,8 +60,7 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    header_file_name = malloc(sizeof(char) * (strlen(file_name) + strlen(HEADER_EXTENSION)));
-    strcpy(header_file_name, file_name);
+    header_file_name = strdup(file_name);
     strcat(header_file_name, HEADER_EXTENSION);
 
     source_file = fopen(source_file_name, "a+");
